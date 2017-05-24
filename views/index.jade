@@ -1,0 +1,12 @@
+doctype html
+html
+  head
+    link(rel='stylesheet', href='/styles/api-console-dark-theme.css', type='text/css')
+    link(rel='stylesheet', href='/styles/api-console-light-theme.css', type='text/css')
+  body(ng-app='ramlConsoleApp', ng-cloak. class='raml-console-body')
+    block content
+    <raml-console-loader src="/docs/v1/api.raml">
+    script(type='text/javascript', src='/js/api-console-vendor.js')
+    script(type='text/javascript', src='/js/api-console.js')
+    script.
+      $.noConflict();
