@@ -1,4 +1,76 @@
 #%RAML 1.0
 ---
-title: smarthouse API
+title: movie-library API
 version: v1
+protocols: [HTTPS]
+#HTTPS
+mediaType: application/json
+#baseUri: https://?.com/api/{version}
+documentation:
+  - title: Home
+    content: |
+      Welcome to the movie-library documentation. Movie-library API allows you to search for the best movies and add your own.
+types:
+  User:
+    displayName: User object
+    description: |
+      User object contains only user id and username
+    type: object
+    properties:
+      id:
+        type: string
+      username:
+        type: string # min max length
+  Movie:
+    displayName: Movie object
+    description: |
+      Movie object represents basic information about the movie
+    type: object
+    properties:
+      id:
+        type: string
+      title:
+        type: string # length: 3-50 chars
+        minLength: 3
+        maxLength: 50
+      rating:
+        type: number
+        minimum: 0
+        maximum: 5
+      director:
+        type: string
+      actors:
+        type: string[] # min max length
+      category:
+        type: string # min max length
+      createdAt:
+        type: datetime-only
+
+/movies:
+  description: Movies collection
+  get:
+    queryParameters:
+      sort:
+        type: string
+        enum: [rating, category]
+    responses:
+      200:
+        body:
+          application/json:
+            type: Movie[]
+  post:
+    body:
+      application/json:
+        type: Movie
+  /{id}:
+    description: Movie item with {id}
+    uriParameters:
+      id:
+        description: Id of a movie
+        type: string
+    get:
+      responses:
+        200:
+          body:
+            application/json:
+              type: Movie
