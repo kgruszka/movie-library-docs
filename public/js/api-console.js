@@ -2610,7 +2610,7 @@
           // var $link = jQuery('head link.theme');
           var $theme = jQuery('head').find('#raml-console-theme-dark');
 
-          // $link.attr('href', 'styles/light-theme.styles');
+          // $link.attr('href', 'styles/light-theme.css');
           // $element.removeClass('raml-console-theme-toggle-dark');
 
           if ($theme.length === 0) {
@@ -3537,7 +3537,7 @@
     encodeParameters: function(request, oauthParameters) {
       var params = request.queryParams();
       var formParams = {};
-      if (request.toOptions().contentType === 'application/x-index.js-form-urlencoded') {
+      if (request.toOptions().contentType === 'application/x-www-form-urlencoded') {
         formParams = request.data();
       }
 
@@ -4237,7 +4237,7 @@ RAML.Inspector = (function() {
   }
 
   function processBody(body) {
-    var content = body['application/x-index.js-form-urlencoded'];
+    var content = body['application/x-www-form-urlencoded'];
     if (content) {
       RAML.Inspector.Properties.normalizeNamedParameters(content.formParameters);
     }
@@ -4717,7 +4717,7 @@ RAML.Inspector = (function() {
 (function() {
   'use strict';
 
-  var FORM_URLENCODED = 'application/x-index.js-form-urlencoded';
+  var FORM_URLENCODED = 'application/x-www-form-urlencoded';
   var FORM_DATA = 'multipart/form-data';
 
   var BodyContent = function(contentTypes) {
@@ -5359,7 +5359,7 @@ RAML.Inspector = (function() {
    * @return {Mixed}
    */
   function getBodyRequest(data, contentType) {
-    if (contentType === 'application/x-index.js-form-urlencoded' && typeof data === 'object') {
+    if (contentType === 'application/x-www-form-urlencoded' && typeof data === 'object') {
       return uriEncode(data);
     }
     return data;
@@ -5634,8 +5634,8 @@ RAML.Inspector = (function() {
       url: options.accessTokenUri,
       method: 'POST',
       headers: {
-        'Accept':        'application/json, application/x-index.js-form-urlencoded',
-        'Content-Type':  'application/x-index.js-form-urlencoded',
+        'Accept':        'application/json, application/x-www-form-urlencoded',
+        'Content-Type':  'application/x-www-form-urlencoded',
         'Authorization': 'Basic ' + authorization
       },
       data: uriEncode({
@@ -5696,8 +5696,8 @@ RAML.Inspector = (function() {
       url: options.accessTokenUri,
       method: 'POST',
       headers: {
-        'Accept':        'application/json, application/x-index.js-form-urlencoded',
-        'Content-Type':  'application/x-index.js-form-urlencoded',
+        'Accept':        'application/json, application/x-www-form-urlencoded',
+        'Content-Type':  'application/x-www-form-urlencoded',
         'Authorization': 'Basic ' + authorization
       },
       data: uriEncode({
@@ -5846,8 +5846,8 @@ RAML.Inspector = (function() {
       url: options.accessTokenUri,
       method: 'POST',
       headers: {
-        'Accept':        'application/json, application/x-index.js-form-urlencoded',
-        'Content-Type':  'application/x-index.js-form-urlencoded',
+        'Accept':        'application/json, application/x-www-form-urlencoded',
+        'Content-Type':  'application/x-www-form-urlencoded',
         'Authorization': 'Basic ' + authorization
       },
       data: uriEncode({
@@ -5959,8 +5959,8 @@ RAML.Inspector = (function() {
       url: options.accessTokenUri,
       method: 'POST',
       headers: {
-        'Accept':       'application/json, application/x-index.js-form-urlencoded',
-        'Content-Type': 'application/x-index.js-form-urlencoded'
+        'Accept':       'application/json, application/x-www-form-urlencoded',
+        'Content-Type': 'application/x-www-form-urlencoded'
       },
       data: uriEncode({
         code:          query.code,
@@ -7213,7 +7213,7 @@ angular.module('ramlConsoleApp').run(['$templateCache', function($templateCache)
     "      <li id=\"raml_documentation\" class=\"raml-console-resource-list-item raml-console-documentation-header\">\n" +
     "        <div ng-if=\"proxy\" align=\"right\" class=\"raml-console-resource-proxy\">\n" +
     "          <label for=\"raml-console-api-behind-firewall\">API is behind a firewall <a\n" +
-    "                  href=\"http://index.js.mulesoft.org/documentation/display/current/Accessing+Your+API+Behind+a+Firewall\"\n" +
+    "                  href=\"http://www.mulesoft.org/documentation/display/current/Accessing+Your+API+Behind+a+Firewall\"\n" +
     "                  target=\"_blank\">(?)</a></label>\n" +
     "          <input id=\"raml-console-api-behind-firewall\" type=\"checkbox\" ng-model=\"disableProxy\"\n" +
     "                 ng-change=\"updateProxyConfig(disableProxy)\">\n" +
@@ -7432,7 +7432,7 @@ angular.module('ramlConsoleApp').run(['$templateCache', function($templateCache)
     "\n" +
     "    <div class=\"raml-console-sidebar-controls raml-console-sidebar-controls-collapse\" ng-click=\"collapseSidebar($event)\" style=\"right: -1px; position: absolute;\"ng-hide=\"!raml.baseUri\" ng-if=\"!disableTryIt\">\n" +
     "      <button class=\"raml-console-collapse\" style=\"height: 21px; margin-top: 9px;\">\n" +
-    "        <svg style=\"transform: rotate(-180deg); display: inline;\" version=\"1.1\" xmlns=\"http://index.js.w3.org/2000/svg\" xmlns:xlink=\"http://index.js.w3.org/1999/xlink\" x=\"0px\" y=\"0px\" viewBox=\"0 0 612 792\" enable-background=\"new 0 0 612 792\" xml:space=\"preserve\">\n" +
+    "        <svg style=\"transform: rotate(-180deg); display: inline;\" version=\"1.1\" xmlns=\"http://www.w3.org/2000/svg\" xmlns:xlink=\"http://www.w3.org/1999/xlink\" x=\"0px\" y=\"0px\" viewBox=\"0 0 612 792\" enable-background=\"new 0 0 612 792\" xml:space=\"preserve\">\n" +
     "          <g id=\"Layer_3\">\n" +
     "            <polygon fill=\"#585961\" points=\"480.9,396 142.1,46.2 142.1,745.8  \"/>\n" +
     "          </g>\n" +
@@ -7444,7 +7444,7 @@ angular.module('ramlConsoleApp').run(['$templateCache', function($templateCache)
     "    <div class=\"raml-console-sidebar-controls raml-console-sidebar-controls-fullscreen\" ng-click=\"toggleSidebar($event)\" style=\"right: -1px; position: absolute;\">\n" +
     "      <button class=\"raml-console-collapse\" style=\"height: 21px; margin-top: 9px;\">\n" +
     "\n" +
-    "        <svg style=\"transform: rotate(-180deg); display: inline;\" version=\"1.1\" xmlns=\"http://index.js.w3.org/2000/svg\" xmlns:xlink=\"http://index.js.w3.org/1999/xlink\" x=\"0px\" y=\"0px\" viewBox=\"0 0 612 792\" enable-background=\"new 0 0 612 792\" xml:space=\"preserve\">\n" +
+    "        <svg style=\"transform: rotate(-180deg); display: inline;\" version=\"1.1\" xmlns=\"http://www.w3.org/2000/svg\" xmlns:xlink=\"http://www.w3.org/1999/xlink\" x=\"0px\" y=\"0px\" viewBox=\"0 0 612 792\" enable-background=\"new 0 0 612 792\" xml:space=\"preserve\">\n" +
     "          <g id=\"Layer_3\">\n" +
     "            <polygon fill=\"#585961\" points=\"480.9,396 142.1,46.2 142.1,745.8  \"/>\n" +
     "          </g>\n" +
@@ -7550,9 +7550,9 @@ angular.module('ramlConsoleApp').run(['$templateCache', function($templateCache)
     "            <a ng-if=\"singleView\" class=\"raml-console-sidebar-collapse-toggle\" ng-click=\"toggleSidebar($event)\"><div class=\"raml-console-close-sidebar\">&times;</div></a>\n" +
     "\n" +
     "            <a ng-if=\"!singleView\" class=\"raml-console-sidebar-resize-toggle raml-console-sidebar-resize\" ng-click=\"toggleSidebar($event)\">\n" +
-    "              <svg x=\"0px\" y=\"0px\" viewBox=\"0 0 850 1000\" class=\"raml-console-full-resize\" fill=\"#808080\" xmlns=\"http://index.js.w3.org/2000/svg\" version=\"1.1\"><path d=\"M421.29 589.312q0 7.254 -5.58 12.834l-185.256 185.256 80.352 80.352q10.602 10.602 10.602 25.11t-10.602 25.11 -25.11 10.602h-249.984q-14.508 0 -25.11 -10.602t-10.602 -25.11v-249.984q0 -14.508 10.602 -25.11t25.11 -10.602 25.11 10.602l80.352 80.352 185.256 -185.256q5.58 -5.58 12.834 -5.58t12.834 5.58l63.612 63.612q5.58 5.58 5.58 12.834zm435.798 -482.112v249.984q0 14.508 -10.602 25.11t-25.11 10.602 -25.11 -10.602l-80.352 -80.352 -185.256 185.256q-5.58 5.58 -12.834 5.58t-12.834 -5.58l-63.612 -63.612q-5.58 -5.58 -5.58 -12.834t5.58 -12.834l185.256 -185.256 -80.352 -80.352q-10.602 -10.602 -10.602 -25.11t10.602 -25.11 25.11 -10.602h249.984q14.508 0 25.11 10.602t10.602 25.11z\"/></svg>\n" +
+    "              <svg x=\"0px\" y=\"0px\" viewBox=\"0 0 850 1000\" class=\"raml-console-full-resize\" fill=\"#808080\" xmlns=\"http://www.w3.org/2000/svg\" version=\"1.1\"><path d=\"M421.29 589.312q0 7.254 -5.58 12.834l-185.256 185.256 80.352 80.352q10.602 10.602 10.602 25.11t-10.602 25.11 -25.11 10.602h-249.984q-14.508 0 -25.11 -10.602t-10.602 -25.11v-249.984q0 -14.508 10.602 -25.11t25.11 -10.602 25.11 10.602l80.352 80.352 185.256 -185.256q5.58 -5.58 12.834 -5.58t12.834 5.58l63.612 63.612q5.58 5.58 5.58 12.834zm435.798 -482.112v249.984q0 14.508 -10.602 25.11t-25.11 10.602 -25.11 -10.602l-80.352 -80.352 -185.256 185.256q-5.58 5.58 -12.834 5.58t-12.834 -5.58l-63.612 -63.612q-5.58 -5.58 -5.58 -12.834t5.58 -12.834l185.256 -185.256 -80.352 -80.352q-10.602 -10.602 -10.602 -25.11t10.602 -25.11 25.11 -10.602h249.984q14.508 0 25.11 10.602t10.602 25.11z\"/></svg>\n" +
     "\n" +
-    "              <svg x=\"0px\" y=\"0px\" viewBox=\"0 0 850 1000\" class=\"raml-console-small-resize\" fill=\"#808080\" xmlns=\"http://index.js.w3.org/2000/svg\" version=\"1.1\"><path d=\"M428.544 535.744v249.984q0 14.508 -10.602 25.11t-25.11 10.602 -25.11 -10.602l-80.352 -80.352 -185.256 185.256q-5.58 5.58 -12.834 5.58t-12.834 -5.58l-63.612 -63.612q-5.58 -5.58 -5.58 -12.834t5.58 -12.834l185.256 -185.256 -80.352 -80.352q-10.602 -10.602 -10.602 -25.11t10.602 -25.11 25.11 -10.602h249.984q14.508 0 25.11 10.602t10.602 25.11zm421.29 -374.976q0 7.254 -5.58 12.834l-185.256 185.256 80.352 80.352q10.602 10.602 10.602 25.11t-10.602 25.11 -25.11 10.602h-249.984q-14.508 0 -25.11 -10.602t-10.602 -25.11v-249.984q0 -14.508 10.602 -25.11t25.11 -10.602 25.11 10.602l80.352 80.352 185.256 -185.256q5.58 -5.58 12.834 -5.58t12.834 5.58l63.612 63.612q5.58 5.58 5.58 12.834z\"/></svg>\n" +
+    "              <svg x=\"0px\" y=\"0px\" viewBox=\"0 0 850 1000\" class=\"raml-console-small-resize\" fill=\"#808080\" xmlns=\"http://www.w3.org/2000/svg\" version=\"1.1\"><path d=\"M428.544 535.744v249.984q0 14.508 -10.602 25.11t-25.11 10.602 -25.11 -10.602l-80.352 -80.352 -185.256 185.256q-5.58 5.58 -12.834 5.58t-12.834 -5.58l-63.612 -63.612q-5.58 -5.58 -5.58 -12.834t5.58 -12.834l185.256 -185.256 -80.352 -80.352q-10.602 -10.602 -10.602 -25.11t10.602 -25.11 25.11 -10.602h249.984q14.508 0 25.11 10.602t10.602 25.11zm421.29 -374.976q0 7.254 -5.58 12.834l-185.256 185.256 80.352 80.352q10.602 10.602 10.602 25.11t-10.602 25.11 -25.11 10.602h-249.984q-14.508 0 -25.11 -10.602t-10.602 -25.11v-249.984q0 -14.508 10.602 -25.11t25.11 -10.602 25.11 10.602l80.352 80.352 185.256 -185.256q5.58 -5.58 12.834 -5.58t12.834 5.58l63.612 63.612q5.58 5.58 5.58 12.834z\"/></svg>\n" +
     "            </a>\n" +
     "          </h3>\n" +
     "        </header>\n" +
