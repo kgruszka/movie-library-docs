@@ -1,0 +1,14 @@
+version: '2'
+services:
+  docs:
+    build: Dockerfile.dev .
+    image: movie-library-docs
+    ports:
+    - "5000:3000"
+    volumes:
+    - .:/opt/project
+    volumes_from:
+    - node_modules
+  node_modules:
+    image: movie-library-docs-deps
+    build: Dockerfile.dev.deps .
