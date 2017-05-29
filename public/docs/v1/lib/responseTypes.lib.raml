@@ -1,0 +1,72 @@
+#%RAML 1.0 Library
+types:
+  400:
+    properties:
+      status:
+        description: Status code for HTTP Bad Request error.
+        type: integer
+        example: 400
+      message:
+        description: Error message.
+        type: string
+        example: Bad Request.
+  401:
+    properties:
+      status:
+        description: Status code for HTTP Unauthorized error.
+        type: integer
+        example: 401
+      message:
+        description: Error message.
+        type: string
+        example: Unauthorized.
+  403:
+    properties:
+      status:
+        description: Status code for HTTP Forbidden error.
+        type: integer
+        example: 403
+      message:
+        description: Error message.
+        type: string
+        example: Forbidden.
+  404:
+    properties:
+      status:
+        description: Status code for HTTP Not Found error.
+        type: integer
+        example: 404
+      message:
+        description: Error message.
+        type: string
+        example: Resource not found.
+  405:
+    properties:
+      status:
+        description: Status code for HTTP Method Not Allowed error.
+        type: integer
+        example: 405
+      message:
+        description: Error message.
+        type: string
+        example: Method Not Allowed.
+  500:
+    properties:
+      status:
+        description: Status code for HTTP Internal Server Error.
+        type: integer
+        example: 500
+      message:
+        description: Error message.
+        type: string
+        example: Internal Server Error.
+  503:
+    properties:
+      status:
+        description: Status code for HTTP Internal Server Error.
+        type: integer
+        example: 500
+      message:
+        description: Error message.
+        type: string
+        example: Internal Server Error.
